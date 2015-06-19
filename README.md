@@ -1,5 +1,5 @@
 # SWTG
-Sine Wave Table Generator<br/>
+- Sine Wave Table Generator<br/>
 This program generates sinusoidal wavetables of varying lengths and depths.<br/>
 Output is available in signed, unsigned, floating point and integer values.<br/>
 The array format is useful for copying and pasting the wavetable into code.<br/>
