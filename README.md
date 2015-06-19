@@ -1,4 +1,4 @@
-<img src="https://github.com/jimfrize/SWTG/blob/master/SWTG.png" width="30" height="30"><h1>SWTG</h1><br/>
+<h1><img src="https://github.com/jimfrize/SWTG/blob/master/SWTG.png" width="40" height="40"> SWTG</h1>
 Sine Wave Table Generator<br/>
 This program generates sinusoidal wavetables of varying lengths and depths.<br/>
 Output is available in signed, unsigned, floating point and integer values.<br/>
