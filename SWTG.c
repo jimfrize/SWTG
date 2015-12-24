@@ -9,10 +9,7 @@ int main(void)
 
 	int length = 16;
 	int depth = 16;
-
-	char isSigned = 'y';
-	char isFloat = 'y';
-	char isArray = 'n';
+	char arrayFormat = 'y';
 
 	double sampleIndex = 0;
 	double amplitude = 0;
@@ -29,9 +26,8 @@ int main(void)
 	printf("\n*                        -=SINE WAVE TABLE GENERATOR=-                         *");
 	printf("\n********************************************************************************");
 	printf("\n*  This program generates sinusoidal wavetables of varying lengths and depths  *");
-	printf("\n*  Output is available in signed, unsigned, floating point and integer values  *");
-	printf("\n*  The array format is useful for copying and pasting the wavetable into code  *");
-	printf("\n*        Please direct any questions or comments to jamesfrize@gmail.com       *");
+	printf("\n*        Output is available as a list or an array of unsigned integers        *");
+	printf("\n*       Please direct any questions or comments to: jamesfrize@gmail.com       *");
 	printf("\n********************************************************************************");
 	printf("\n");
 
@@ -49,17 +45,9 @@ int main(void)
 		printf("-> Wavetable depth: ");
 		scanf("%i", &depth);
 
-		printf("-> Signed values? y/n: ");
-		getchar(); // eat unwanted return char
-		scanf("%c", &isSigned);
-
-		printf("-> Floating point values? y/n: ");
-		getchar(); // eat unwanted return char
-		scanf("%c", &isFloat);
-
 		printf("-> Array format? y/n: ");
 		getchar(); // eat unwanted return char
-		scanf("%c", &isArray);
+		scanf("%c", &arrayFormat);
 
 		printf("\n");
 
@@ -67,10 +55,10 @@ int main(void)
 		// generate wavetable //
 		////////////////////////
 
-		hypotenuse = (float)depth / 2;
+		hypotenuse = ((float)depth - 1) / 2;
 		radiansPerSample = (2 * M_PI) / length;
 
-		if(isArray == 'y')
+		if(arrayFormat == 'y')
 		{
 			printf("{");
 		}
@@ -79,23 +67,14 @@ int main(void)
 		{
 			radians = sampleIndex * radiansPerSample;
 			amplitude = sin(radians) * hypotenuse;
+			amplitude = amplitude + hypotenuse; // remove negative values
+			printf("%i", (int)round(amplitude)); // round off and convert to int
 
-			if(isSigned == 'n')
-			{
-				amplitude = amplitude + hypotenuse; // remove negative values
-			}
-
-			if(isFloat == 'n')
-			{
-				printf("%i", (int)round(amplitude)); // round off and convert to int
-			}
-			else printf("%f", amplitude);
-
-			if(isArray == 'y')
+			if(arrayFormat == 'y')
 			{
 				if(sampleIndex < length - 1)
 				{
-					printf(","); // separate with a comma, unless it's the final value
+					printf(","); // separate values with a comma
 				}
 			}
 			else printf("\n");
@@ -103,13 +82,12 @@ int main(void)
 			sampleIndex++; // increment to the next sample
 		}
 
-		if(isArray == 'y')
+		if(arrayFormat == 'y')
 		{
 			printf("}");
 		}
 
 		printf("\n");
-
 		sampleIndex = 0; // reset sampleIndex
 	}
 
