@@ -17,3 +17,5 @@ Now open Terminal, move to the SWTG directory and run the following command:<br/
 
 This will compile a binary called SWTG that will be suitable for use on your system.<br/>
 Please direct any questions or comments to jim@sonodrome.co.uk
+
+This software is available for personal use under the CC BY-NC 4.0 license: https://creativecommons.org/licenses/by-nc/4.0/
