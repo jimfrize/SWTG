@@ -16,4 +16,4 @@ Now open Terminal, move to the SWTG directory and run the following command:<br/
 <code>make</code>
 
 This will compile a binary called SWTG that will be suitable for use on your system.<br/>
-Please direct any questions or comments to jamesfrize@gmail.com
+Please direct any questions or comments to jim@sonodrome.co.uk
